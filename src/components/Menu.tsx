@@ -1,3 +1,4 @@
+import { role } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -118,25 +119,83 @@ const menuItems = [
 
 const Menu = () => {
   return (
-    <div className="mt-4 text-sm pb-10">
-      {menuItems.map(i => (
-        <div className="flex flex-col gap-2" key={i.title}>
+//     <div className="mt-4 text-sm">
+//       {menuItems.map((i) => (
+//         <div className="flex flex-col gap-2" key={i.title}>
+//           <span className="hidden lg:block text-gray-400 font-light my-4">
+//             {i.title}
+//           </span>
+//           {i.items.map((item) => {
+//             if (item.visible.includes(role)) {
+//               return (
+//                 // <Link
+//                 //   href={item.href}
+//                 //   key={item.label}
+//                 //   className="flex items-center justify-center lg:justify-start gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:bg-lightsky"
+//                 // >
+//                 //   <Image src={item.icon} alt="" width={20} height={20} />
+//                 //   <span className="hidden lg:block">{item.label}</span>
+//                 // </Link>
+//                 <Link
+//   href={item.href}
+//   key={item.label}
+//   className="flex items-center justify-center lg:justify-start gap-2 text-gray-500 py-2 md:px-2 rounded-md hover:bg-lightsky"
+// >
+//   {/* Keep the icon always visible */}
+//   <Image
+//     src={item.icon}
+//     alt={item.label}
+//     width={20}
+//     height={20}
+//     className="block"
+//   />
+
+//   {/* Only show text on lg and above */}
+//   <span className="hidden lg:inline">{item.label}</span>
+// </Link>
+
+//               );
+//             }
+//           })}
+//         </div>
+//       ))}
+//     </div>
+
+ <div className="mt-4 text-sm">
+      {menuItems.map((section) => (
+        <div className="flex flex-col gap-2" key={section.title}>
+          {/* Section title only shows on large screens */}
           <span className="hidden lg:block text-gray-400 font-light my-4">
-            {i.title}
+            {section.title}
           </span>
-          {i.items.map(item => (
-            <Link
-              href={item.href}
-              key={item.label}
-              className="flex items-center justify-center lg:justify-start gap-4 text-gray-500 py-2 hover:text-black transition-colors"
-            >
-              <Image src={item.icon} alt="icon" width={20} height={20} />
-              <span className="hidden lg:block">{item.label}</span>
-            </Link>
-          ))}
+
+          {section.items.map((item) => {
+            if (item.visible.includes(role)) {
+              return (
+                <Link
+                  href={item.href}
+                  key={item.label}
+                  className="flex items-center gap-3 text-gray-500 py-2 px-2 rounded-md hover:bg-lightsky"
+                >
+                  {/* Icon always visible */}
+                  <Image
+                    src={item.icon}
+                    alt={item.label}
+                    width={20}
+                    height={20}
+                    className="shrink-0"
+                  />
+
+                  {/* Label only on lg screens */}
+                  <span className="hidden lg:inline">{item.label}</span>
+                </Link>
+              );
+            }
+          })}
         </div>
       ))}
     </div>
   );
 };
+
 export default Menu;

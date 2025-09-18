@@ -27,7 +27,7 @@ Think of it as a growing tree 🌱: every commit adds a new branch, and over tim
 - [x] Basic layout & folder structure  
 - [ ] Form handling with React Hook Form  
 - [ ] Authentication (Admin, Teacher, Student, Parent)  
-- [ ] Dashboard UI (responsive & dynamic)  
+- [x] Dashboard UI (responsive & dynamic)  
 - [ ] Student registration & record management  
 - [ ] Teacher & course management  
 - [ ] Timetable & attendance tracking  

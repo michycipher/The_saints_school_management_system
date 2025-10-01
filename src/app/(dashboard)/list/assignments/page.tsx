@@ -2,7 +2,7 @@ import FormModal from "@/components/FormModal";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
-import {  assignmentsData, lessonsData, role } from "@/lib/data";
+import { assignmentsData, lessonsData, role } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -58,11 +58,11 @@ const AssignmentListPage = () => {
               <Image src="/edit.png" alt="" width={16} height={16} />
             </button>
           </Link>
-          {role === "admin" && (
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-Purple">
-              <Image src="/delete.png" alt="" width={16} height={16} />
-            </button>
-            // <FormModal table="teacher" type="delete" id={item.id}/>
+          {role === "admin" || role === "teacher" && (
+            <>
+              <FormModal table="assignment" type="update" data={item} />
+              <FormModal table="assignment" type="delete" id={item.id} />
+            </>
           )}
         </div>
       </td>
@@ -83,12 +83,8 @@ const AssignmentListPage = () => {
             <button className="w-8 h-8 flex items-center justify-center rounded-full bg-Yellow  max-sm:w-6 max-sm:h-6">
               <Image src="/sort.png" alt="" width={14} height={14} />
             </button>
-            {role === "admin" && (
-              <button className="w-8 h-8 flex items-center justify-center rounded-full bg-Yellow max-sm:w-6 max-sm:h-6">
-                <Image src="/plus.png" alt="" width={14} height={14} />
-              </button>
-              // <FormModal table="student" type="create"/>
-            )}
+            {role === "admin" || role === "teacher" &&
+              <FormModal table="assignment" type="create" />}
           </div>
         </div>
       </div>

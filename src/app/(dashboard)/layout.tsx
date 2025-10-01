@@ -11,10 +11,10 @@ export default function DashboardLayout({
   return (
     <div className="h-screen flex overflow-hidden">
       {/* LEFT */}
-      <div className="w-[14%] md:w-[8%] lg:w-[16%] xl:w-[14%] p-4 h-screen overflow-y-auto hide-scrollbar border-r border-gray-200">
+      <div className="w-16 lg:w-56 p-4 h-screen overflow-y-auto hide-scrollbar border-r border-gray-200 flex-shrink-0">
         <Link
           href="/"
-          className="flex items-center justify-center lg:justify-start gap-2"
+          className="flex items-center justify-center lg:justify-start gap-2 mb-6"
         >
           <Image src="/logo.png" alt="logo" width={32} height={32} />
           <span className="hidden lg:block font-bold">The Saints</span>

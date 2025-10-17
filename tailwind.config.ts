@@ -13,6 +13,15 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        Sky:"#C3EBFA", // LIGHT BLUE COLOR ON THE GRAPH
+        lightsky:"#EDF9FD", 
+        Purple: "#CFCEFF",
+        PurpleLight: "#F1F0FF",
+        Yellow: "#F3B910",
+        YellowLight: "#FEFCE8",
+        Blue: "#174A93", // DARK BLUE COLOR ON THE GRAPH
+      }
     },
   },
   plugins: [],
